@@ -1,0 +1,37 @@
+Sun is "Sun is the center of the Solar System" 
+Planet1 has ["Mercury is", 58 km, "million km from the Sun"]
+Planet2 has ["Venus is", 108 km, "million km from the Sun"]
+Planet3 has ["Earth is", 149.7 light-year, "million km from the Sun"]
+Planet4 has ["Mars is", 227.9 light-year, "million km from the Sun"]
+Planet5 has ["Jupiter is", 778 km, "million km from the Sun"]
+Planet6 has ["Saturn is", 1.4 light-year, "billion km from the Sun"]
+Planet7 has ["Uranus is", 2.9 light-year, "billion km from the Sun"]
+Planet8 has ["Neptune is", 4.5 light-year, "billion km from the Sun"]
+
+CountDown is 10 km away 
+Relay "Launch in..."
+Relay CountDown
+
+In 10 orbits: 
+    CountDown blueshifted by 1 km 
+    Relay CountDown 
+Deactivate
+
+Module SolarSystem: 
+    Relay Sun
+    Relay Planet1 
+    Relay Planet2
+    Relay Planet3
+    Relay Planet4
+    Relay Planet5
+    Relay Planet6
+    Relay Planet7
+    Relay Planet8 
+Deactivate
+
+Main system activate when CountDown equals 0 km: 
+    Relay "Planets in the Solar System:" 
+    Engage SolarSystem
+Backup system: 
+    Relay "Critical system failure! Switching to backup..."
+Deactivate

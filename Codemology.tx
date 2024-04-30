@@ -1,0 +1,73 @@
+Program: 
+    statements+=Statement
+;
+
+Statement: 
+    Assignment 
+    | List 
+    | IfStmt 
+    | Loop 
+    | Function 
+    | ExFunction
+    | Print
+    | Calculation
+;
+
+Assignment: 
+    name=ID 'is' (value=INT 'km away' | value=FLOAT 'light-year away' | value=STRING | value='Habitable' | value='Non-habitable')
+; 
+
+List: 
+    (name=ID 'has' '[' items*=ListItem[','] ']'
+    | name=ID listAction='captures' item=ID
+    | item=ID listAction='escapes' name=ID ) 
+;
+
+ListItem: 
+    (value=ID | value=STRING | value=INT 'km' | value=FLOAT 'light-year')
+;
+
+IfStmt: 
+    'Main system activate when' (op1=ID comparator=Comparator (value=ID ':' | value=INT 'km' ':'| value=FLOAT 'light-year' ':')
+    | op1=ID 'is' (value='Habitable' | value='Non-habitable') ':' ) 
+    body+=Statement
+    ('Backup system' ':'
+    body2+=Statement)?
+    'Deactivate'
+;
+
+Loop: 
+    'In' orbits=INT 'orbits' ':'
+    body+=Statement
+    'Deactivate'
+;
+
+Function: 
+    'Module' name=ID ':'
+    body+=Statement
+    'Deactivate'
+;
+
+ExFunction: 
+    'Engage' function=ID
+;
+
+Print: 
+    'Relay' (name=ID | value=STRING)
+;
+
+Comparator: 
+    'exceeds' | 'subceeds' | 'equals' | 'unequals' | 'approaching' | 'departing'
+;
+
+Calculation: 
+    name=ID operator=Operator 'by' (value=INT 'km' | value=FLOAT 'light-year')
+;
+
+Operator: 
+    'redshifted' | 'blueshifted' 
+;
+
+Comment:
+  /\/\/.*$/
+;

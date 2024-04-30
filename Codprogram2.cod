@@ -1,0 +1,19 @@
+Enterprise is 10.0 light-year away 
+Earth is "our home planet" 
+SolarSystem  is "our home system" 
+Relay Enterprise
+
+MilkyWay has ["Proxima"]
+Relay MilkyWay
+
+Enterprise redshifted by 2.0 light-year
+Relay Enterprise
+
+Main system activate when Enterprise exceeds 10.0 light-year: 
+    MilkyWay captures Earth
+    MilkyWay captures SolarSystem
+Backup system: 
+    Relay "Critical failure! Switching to backup system..." 
+Deactivate
+
+Relay MilkyWay 
